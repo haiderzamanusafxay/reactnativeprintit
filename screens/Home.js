@@ -1,12 +1,17 @@
 import {View, Text, Pressable, Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+// import {createNavigationContainerRef} from '@react-navigation/native';
 import React from 'react';
+
 import HomeCSS from '../assests/css/HomeCSS';
 const Home = () => {
+  // const navigationRef = createNavigationContainerRef();
+  const navigation = useNavigation();
   return (
     <View style={HomeCSS.container}>
       <View style={HomeCSS.logopart}>
         <View style={HomeCSS.LogoArea}>
-            <Image source={require('../assests/images/logo.png')}></Image>
+          <Image source={require('../assests/images/logo.png')}></Image>
           <Text style={HomeCSS.LogoText}>Print it</Text>
         </View>
       </View>
@@ -22,7 +27,9 @@ const Home = () => {
           </Text>
         </View>
         <View style={HomeCSS.ButtonArea}>
-          <Pressable style={HomeCSS.ButtonLogin}>
+          <Pressable
+            style={HomeCSS.ButtonLogin}
+            onPress={() => navigation.navigate('SignIn')}>
             <Text style={HomeCSS.SignInBtnText}>Sgin In</Text>
           </Pressable>
           <Pressable style={HomeCSS.ButtonSignUp}>
