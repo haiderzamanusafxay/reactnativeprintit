@@ -1,15 +1,20 @@
 import {Text, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation} from '@react-navigation/native';
+
 
 const BlueBtn = props => {
+  const navigation = useNavigation();
   return (
     <LinearGradient
       start={{x: 0, y: 0}}
       end={{x: 1, y: 0}}
       colors={['#6a1ed2', '#01deb6']}
       style={styles.container}>
-      <Pressable style={styles.BlueBtn}>
+      <Pressable
+        style={styles.BlueBtn}
+        onPress={() => navigation.navigate('findPointers')}>
         <Text style={styles.BlueBtnText}>{props.name}</Text>
       </Pressable>
     </LinearGradient>

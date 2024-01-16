@@ -32,7 +32,7 @@ const SignIn = () => {
             </View>
             <View style={SignInCSS.SSOButtons}>
               <Pressable style={SignInCSS.GoogleButton}>
-                <Icon name="google" size={20} color="black"/>
+                <Icon name="google" size={20} color="black" />
                 <Text style={SignInCSS.TextInsideFBtn}>Google</Text>
               </Pressable>
               <Pressable style={SignInCSS.FbButton}>
@@ -53,7 +53,10 @@ const SignIn = () => {
             </View>
             <TextInputSign placeholder="Email" />
             <TextInputSign placeholder="Password" />
-            <BlueBtn name="Login" />
+            <BlueBtn
+              name="Login"
+              
+            />
             <Text style={SignInCSS.bottomText}>
               Don’t have an account?{' '}
               <Text style={{color: '#00917C'}}>SignUp</Text>
