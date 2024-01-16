@@ -26,7 +26,7 @@ const FindPointers = () => {
           <ToolElement
             title="Print Document"
             subTitle="Select a file from your phone to print"
-            image="qrcode.png"
+            image={"qrcode.png"}
           />
           <ToolElement
             title="Print Document"

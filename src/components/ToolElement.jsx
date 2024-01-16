@@ -6,20 +6,17 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-const ToolElement = (props) => {
-    const image = require(`../../assests/images/${props.image}`)
+
+const ToolElement = props => {
+  const image = `../../assests/images/${props?.image}`;
   return (
     <View style={styles.ToolElement}>
       <View style={styles.imageArea}>
-        <Image
-          source={image}
-          style={styles.image}
-        />
+        <Image source={image} style={styles.image} />
       </View>
       <View style={styles.infoArea}>
         <Text style={styles.infoHead}>{props.title}</Text>
         <Text style={styles.infoSubHead}>{props.subTitle}</Text>
-
       </View>
     </View>
   );
@@ -35,7 +32,7 @@ const styles = StyleSheet.create({
     bottom: RFValue(5),
     padding: RFValue(10),
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   imageArea: {
@@ -54,13 +51,12 @@ const styles = StyleSheet.create({
     height: RFValue(40),
   },
   infoHead: {
-      fontSize: RFValue(20),
-      fontWeight: 'bold',
+    fontSize: RFValue(20),
+    fontWeight: 'bold',
   },
   infoSubHead: {
-      fontSize: RFValue(10),
-  }
-
+    fontSize: RFValue(10),
+  },
 });
 
 export default ToolElement;
