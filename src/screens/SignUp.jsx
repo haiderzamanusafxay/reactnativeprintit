@@ -1,10 +1,11 @@
-import {View, Text, Image, Pressable, ScrollView} from 'react-native';
+import {View, Text, ScrollView, Image, Pressable} from 'react-native';
 import React from 'react';
-import SignInCSS from '../../assests/css/SignInCSS';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {SignUpCSS} from '../../assests/css/SignUpCSS';
+import SignInCSS from '../../assests/css/SignInCSS';
 import TextInputSign from '../components/TextInputSign';
 import BlueBtn from '../components/BlueBtn';
-const SignIn = () => {
+const SignUp = () => {
   return (
     <SafeAreaView style={{height: '100%', backgroundColor: '#fff'}}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -15,12 +16,13 @@ const SignIn = () => {
           </View>
           <View style={SignInCSS.signToContinue}>
             <Text style={SignInCSS.SignInToContinueText}>
-              Sign in to continue
+              Create new account
             </Text>
             <Text style={SignInCSS.SignInToContinueSubText}>
               Please fill in the form to continue
             </Text>
           </View>
+
           <View style={SignInCSS.SSOButtons}>
             <Pressable style={SignInCSS.GoogleButton}>
               <Text style={SignInCSS.TextInsideFBtn}>Google</Text>
@@ -33,22 +35,27 @@ const SignIn = () => {
             <View style={SignInCSS.SignUpWithText}>
               <Text>
                 <View style={{background: '#black', padding: '0 10px'}}></View>
-                Sign In With
+                Sign Up With
                 <View style={{background: '#black', padding: '0 10px'}}></View>
               </Text>
             </View>
+            <TextInputSign placeholder="Name" />
+            <TextInputSign placeholder="Email" />
+            <TextInputSign placeholder="Password" />
+            <TextInputSign placeholder="Confirm Password" />
+            <View style={SignUpCSS.termsAndCondition}>
+              <Text>I agree to the terms and conditions</Text>
+            </View>
+            <BlueBtn name="Sign Up" />
+            <Text style={SignUpCSS.bottomText}>
+              Already have an account?{' '}
+              <Text style={{color: '#00917C'}}>Sign In</Text>
+            </Text>
           </View>
-          <TextInputSign placeholder="Email" />
-          <TextInputSign placeholder="Password" />
-          <BlueBtn name="Login" />
-          <Text style={SignInCSS.bottomText}>
-            Don’t have an account?{' '}
-            <Text style={{color: '#00917C'}}>SignUp</Text>
-          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default SignIn;
+export default SignUp;

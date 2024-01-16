@@ -1,5 +1,5 @@
 import {View, Text, Pressable, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Link, useNavigation} from '@react-navigation/native';
 // import {createNavigationContainerRef} from '@react-navigation/native';
 import React from 'react';
 
@@ -32,7 +32,9 @@ const Home = () => {
             onPress={() => navigation.navigate('SignIn')}>
             <Text style={HomeCSS.SignInBtnText}>Sgin In</Text>
           </Pressable>
-          <Pressable style={HomeCSS.ButtonSignUp}>
+          <Pressable
+            style={HomeCSS.ButtonSignUp}
+            onPress={() => navigation.navigate('SignUp')}>
             <Text style={HomeCSS.SignUpBtnText}>Sgin Up</Text>
           </Pressable>
         </View>
