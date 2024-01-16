@@ -1,5 +1,6 @@
 import {View, Text, ScrollView, Image, Pressable} from 'react-native';
 import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignUpCSS} from '../../assests/css/SignUpCSS';
 import SignInCSS from '../../assests/css/SignInCSS';
@@ -25,9 +26,11 @@ const SignUp = () => {
 
           <View style={SignInCSS.SSOButtons}>
             <Pressable style={SignInCSS.GoogleButton}>
+              <Icon name="google" size={20} color="black" />
               <Text style={SignInCSS.TextInsideFBtn}>Google</Text>
             </Pressable>
             <Pressable style={SignInCSS.FbButton}>
+              <Icon name="google" size={20} color="black" />
               <Text style={SignInCSS.TextInsideGBtn}>Facebook</Text>
             </Pressable>
           </View>

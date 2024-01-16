@@ -1,15 +1,16 @@
 import {StyleSheet} from 'react-native';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 export const SignUpCSS = StyleSheet.create({
   termsAndCondition: {
-    marginTop: 10,
+    marginTop: RFValue(10),
     alignItems: 'start',
   },
   bottomText: {
-    marginTop: 20,
+    marginTop: RFValue(20),
     color: '#9A9A9A',
-    fontSize: 14,
+    fontSize: RFValue(14),
     fontWeight: 'bold',
-    marginBottom: 40,
+    marginBottom: RFValue(40),
   },
 });
