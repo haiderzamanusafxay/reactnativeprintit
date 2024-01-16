@@ -11,7 +11,7 @@ const DetailCard = () => {
     <View style={styles.DetailCard}>
       <View style={styles.infoArea}>
         <Text style={{color: '#01DEB6'}}>No Printer selected</Text>
-        <Text style={{color: "black", fontWeight: 'bold', fontSize: RFValue(16)}}>Please Select a Printer</Text>
+        <Text style={{color: "#4C4C4C", fontWeight: 'bold', fontSize: RFValue(16)}}>Please Select a Printer</Text>
       </View>
       <View style={styles.imageArea}>
         <Image

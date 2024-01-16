@@ -8,11 +8,11 @@ import {
 } from 'react-native-responsive-screen';
 
 const ToolElement = props => {
-  const image = `../../assests/images/${props?.image}`;
+  console.log(props);
   return (
     <View style={styles.ToolElement}>
       <View style={styles.imageArea}>
-        <Image source={image} style={styles.image} />
+        <Image source={{uri: props.image}} style={styles.image} />
       </View>
       <View style={styles.infoArea}>
         <Text style={styles.infoHead}>{props.title}</Text>
