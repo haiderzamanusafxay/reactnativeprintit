@@ -11,6 +11,7 @@ const HomeCSS = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: wp('100%'),
+    height: hp('100%'),
   },
   logopart: {
     width: wp('100%'),

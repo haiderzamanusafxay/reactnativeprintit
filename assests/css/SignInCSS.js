@@ -4,6 +4,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 const SignInCSS = StyleSheet.create({
   SafeAreaView: {
     backgroundColor: '#fff',
+    height: hp('100%'),
   },
   container: {
     backgroundColor: '#fff',

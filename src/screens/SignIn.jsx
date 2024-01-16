@@ -32,11 +32,11 @@ const SignIn = () => {
             </View>
             <View style={SignInCSS.SSOButtons}>
               <Pressable style={SignInCSS.GoogleButton}>
-                {/* <Icon name="google" size={20} color="black" /> */}
+                <Icon name="google" size={20} color="black"/>
                 <Text style={SignInCSS.TextInsideFBtn}>Google</Text>
               </Pressable>
               <Pressable style={SignInCSS.FbButton}>
-                {/* <Icon name="facebook" size={20} color="#fff" /> */}
+                <Icon name="facebook" size={20} color="white" />
                 <Text style={SignInCSS.TextInsideGBtn}>Facebook</Text>
               </Pressable>
             </View>

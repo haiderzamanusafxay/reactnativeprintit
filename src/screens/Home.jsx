@@ -1,11 +1,9 @@
 import {View, Text, Pressable, Image} from 'react-native';
-import {Link, useNavigation} from '@react-navigation/native';
-// import {createNavigationContainerRef} from '@react-navigation/native';
+import { useNavigation} from '@react-navigation/native';
 import React from 'react';
 
 import HomeCSS from '../../assests/css/HomeCSS';
 const Home = () => {
-  // const navigationRef = createNavigationContainerRef();
   const navigation = useNavigation();
   return (
     <View style={HomeCSS.container}>
