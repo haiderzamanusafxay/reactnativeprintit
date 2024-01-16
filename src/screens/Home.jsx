@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 // import {createNavigationContainerRef} from '@react-navigation/native';
 import React from 'react';
 
-import HomeCSS from '../assests/css/HomeCSS';
+import HomeCSS from '../../assests/css/HomeCSS';
 const Home = () => {
   // const navigationRef = createNavigationContainerRef();
   const navigation = useNavigation();
@@ -11,7 +11,7 @@ const Home = () => {
     <View style={HomeCSS.container}>
       <View style={HomeCSS.logopart}>
         <View style={HomeCSS.LogoArea}>
-          <Image source={require('../assests/images/logo.png')}></Image>
+          <Image source={require('../../assests/images/logo.png')}></Image>
           <Text style={HomeCSS.LogoText}>Print it</Text>
         </View>
       </View>
