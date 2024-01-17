@@ -15,11 +15,10 @@ import {
 
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
-import FindPointersCSS from '../../assests/css/FindPointersCSS';
+import FindPrintersCSS from '../../assests/css/FindPrintersCSS';
 import StickySearchBar from '../components/StickySearchBar';
 import DetailCard from '../components/DetailCard';
 import SelectionCard from '../components/SelectionCard';
-
 
 const FindPointersSelected = () => {
   const image1 = '../../assests/images/9doc.png';
@@ -28,11 +27,11 @@ const FindPointersSelected = () => {
 
   return (
     <>
-      <SafeAreaView style={FindPointersCSS.container}>
+      <SafeAreaView style={FindPrintersCSS.container}>
         <ScrollView>
           <ImageBackground
             source={require('../../assests/images/map.png')}
-            style={FindPointersCSS.SelectionContainer}>
+            style={FindPrintersCSS.SelectionContainer}>
             <StickySearchBar />
             <DetailCard />
           </ImageBackground>

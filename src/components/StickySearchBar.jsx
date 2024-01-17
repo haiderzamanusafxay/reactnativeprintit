@@ -1,4 +1,11 @@
-import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Image,
+} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Feather';
 import React from 'react';
@@ -7,11 +14,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-
+import {useNavigation} from '@react-navigation/native';
 const StickySearchBar = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.searchContainer}>
-      <Icon name="menu" size={30} color="black" style={styles.menuIcon} />
+      <Pressable
+        onPress={() => {
+          navigation.openDrawer();
+        }}
+        style={styles.menuIcon}>
+        <Icon name="menu" size={30} color="black" />
+      </Pressable>
       <TextInput placeholder="Good Everning Ali" style={styles.searchInput} />
       <Image
         source={require('../../assests/images/profile.png')}

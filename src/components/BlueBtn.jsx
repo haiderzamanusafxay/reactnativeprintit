@@ -14,7 +14,7 @@ const BlueBtn = props => {
       style={styles.container}>
       <Pressable
         style={styles.BlueBtn}
-        onPress={() => navigation.navigate('findPointers')}>
+        onPress={() => navigation.navigate('findPrinters')}>
         <Text style={styles.BlueBtnText}>{props.name}</Text>
       </Pressable>
     </LinearGradient>

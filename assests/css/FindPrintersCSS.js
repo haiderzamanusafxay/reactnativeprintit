@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-export default FindPointersCSS = StyleSheet.create({
+export default FindPrintersCSS = StyleSheet.create({
   container: {
     backgroundColor: '#F2F2F2',
     alignItems: 'center',
