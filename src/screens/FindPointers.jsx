@@ -1,33 +1,21 @@
-import {View, Text, TextInput, ImageBackground} from 'react-native';
+import {View, Text, TextInput, ImageBackground, Image} from 'react-native';
 import React from 'react';
+import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {StyleSheet} from 'react-native';
 import FindPointersCSS from '../../assests/css/FindPointersCSS';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import StickySearchBar from '../components/StickySearchBar';
 import DetailCard from '../components/DetailCard';
-import ToolElement from '../components/ToolElement';
 
-const image1= '../../assests/images/9doc.png';
-const image2= '../../assests/images/9imageGallery.png';
-const image3= '../../assests/images/9scannerIcon.png'; 
 const FindPointers = () => {
-  const imagesArray = [
-    {
-      path: image1,
-      title: 'Print Document',
-      subTitle: 'Select a file from your phone to print',
-    },
-    {
-      path: image2,
-      title: 'Photocopy',
-      subTitle: 'Select an image from your gallery to print',
-    },
-    {
-      path: image3,
-      title: 'Print Photo',
-      subTitle: 'Select a photo from your gallery',
-    },
-  ];
+  const image1 = '../../assests/images/9doc.png';
+  const image2 = '../../assests/images/9imageGallery.png';
+  const image3 = '../../assests/images/9scannerIcon.png';
+
   return (
     <>
       <SafeAreaView style={FindPointersCSS.container}>
@@ -38,33 +26,80 @@ const FindPointers = () => {
           <DetailCard />
         </ImageBackground>
         <View style={FindPointersCSS.ToolsContainer}>
-          {imagesArray.map((item, index) => (
-            <ToolElement
-              key={index}
-              image={item.path}
-              title={item.title}
-              subTitle={item.subTitle}
-            />
-          ))}
-          {/* <ToolElement
-            title="Print Document"
-            subTitle="Select a file from your phone to print"
-            image="qrcode.png"
-          />
-          <ToolElement
-            title="Print Document"
-            subTitle="Select a file from your phone to print"
-            image={'qrcode.png'}
-          />
-          <ToolElement
-            title="Print Document"
-            subTitle="Select a file from your phone to print"
-            image="qrcode.png"
-          /> */}
+          <View style={styles.ToolElement}>
+            <View style={styles.imageArea}>
+              <Image source={require(image1)} style={styles.image} />
+            </View>
+            <View style={styles.infoArea}>
+              <Text style={styles.infoHead}>Print Document</Text>
+              <Text style={styles.infoSubHead}>
+                Select a file from your phone to print
+              </Text>
+            </View>
+          </View>
+          <View style={styles.ToolElement}>
+            <View style={styles.imageArea}>
+              <Image source={require(image2)} style={styles.image} />
+            </View>
+            <View style={styles.infoArea}>
+              <Text style={styles.infoHead}>Photocopy</Text>
+              <Text style={styles.infoSubHead}>
+                Select an image from your gallery to print
+              </Text>
+            </View>
+          </View>
+          <View style={styles.ToolElement}>
+            <View style={styles.imageArea}>
+              <Image source={require(image3)} style={styles.image} />
+            </View>
+            <View style={styles.infoArea}>
+              <Text style={styles.infoHead}>Print Photo</Text>
+              <Text style={styles.infoSubHead}>
+                Select a photo from your gallery
+              </Text>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  ToolElement: {
+    margin: RFValue(10),
+    height: RFValue(75),
+    width: wp('80%'),
+    backgroundColor: 'white',
+    borderRadius: RFValue(8),
+    bottom: RFValue(5),
+    padding: RFValue(10),
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  imageArea: {
+    width: wp('20%'),
+    height: RFValue(40),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  image: {
+    width: RFValue(35),
+    height: RFValue(45),
+  },
+  infoHead: {
+    fontSize: RFValue(20),
+    fontWeight: 'bold',
+  },
+  infoSubHead: {
+    fontSize: RFValue(10),
+  },
+});
 
 export default FindPointers;
