@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import React from 'react';
 import {
   widthPercentageToDP as wp,
@@ -20,7 +20,40 @@ const SelectionCard = () => {
         />
       </View>
       <View style={styles.main}>
-        
+        <View style={styles.upperContainer}>
+          <View
+            style={{
+              width: RFValue(50),
+              height: RFValue(50),
+              overflow: 'hidden',
+            }}>
+            <Image
+              source={require('../../assests/images/printer.png')}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.upperText}>
+            <Text style={styles.header}>PG2357</Text>
+            <View style={styles.address}>
+              <Icon
+                name="location-sharp"
+                size={RFValue(10)}
+                color="grey"
+                style={styles.locationIcon}
+              />
+              <Text style={{fontSize: RFValue(8)}}>
+                71-75 New Ocford st,london WC1A !DG
+              </Text>
+            </View>
+            <Text style={{fontSize: RFValue(8), color: '#4F51CB'}}>
+              <Icon name="time" size={RFValue(10)} color="#4F51CB" />
+              8:00 Am - 10:00 Pm
+            </Text>
+          </View>
+        </View>
+        <Pressable style={styles.lowerContainer}>
+          <Text style={{color: 'white', fontWeight: 'bold'}}>Select</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -50,6 +83,41 @@ const styles = StyleSheet.create({
     height: RFValue(110),
     borderRadius: RFValue(10),
     backgroundColor: 'white',
+    flexDirection: 'column',
+    overflow: 'hidden',
+    padding: RFValue(10),
+  },
+  upperContainer: {
+    padding: RFValue(10),
+    flexDirection: 'row',
+    height: RFValue(70),
+    width: wp('100%'),
+  },
+  upperText: {
+    flexDirection: 'column',
+    overflow: "idden",
+  },
+  header: {
+    fontSize: RFValue(20),
+    fontWeight: 'bold',
+    paddingBottom: RFValue(3),
+  },
+  address: {
+    flexDirection: 'row',
+  },
+  image: {
+    width: RFValue(40),
+    height: RFValue(40),
+    padding: RFValue(10),
+  },
+  lowerContainer: {
+    borderRadius: RFValue(5),
+    overflow: 'hidden',
+    width: wp('70%'),
+    height: RFValue(25),
+    backgroundColor: '#4F51CB',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
