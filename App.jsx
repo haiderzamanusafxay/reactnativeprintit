@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './src/screens/Home';
 import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
-import FindPointers from './src/screens/FindPointers';
+import FindPointers from './src/screens/FindPrinters';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 

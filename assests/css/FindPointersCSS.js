@@ -24,4 +24,9 @@ export default FindPointersCSS = StyleSheet.create({
     height: hp('45%'),
     alignItems: 'center',
   },
+  absoluteLocationIcon: {
+    position: 'absolute',
+    top: RFValue(60),
+    left: RFValue(100),
+  }
 });
