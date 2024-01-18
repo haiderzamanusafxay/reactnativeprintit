@@ -18,7 +18,7 @@ const App = () => {
     <NavigationContainer>
       <Drawer.Navigator
         screenOptions={{headerShown: false}}
-        drawercontent={<CustomDrawer />}>
+        drawerContent={() => <CustomDrawer/>}>
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="SignIn" component={SignIn} />
         <Drawer.Screen name="SignUp" component={SignUp} />

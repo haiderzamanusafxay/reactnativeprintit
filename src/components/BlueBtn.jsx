@@ -1,7 +1,7 @@
 import {Text, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const BlueBtn = props => {
