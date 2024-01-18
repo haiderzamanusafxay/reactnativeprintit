@@ -19,9 +19,13 @@ import {
 } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useSelector } from 'react-redux';
 const CustomDrawer = () => {
+  const showDrawer = useSelector(state => state.drawer.value);
+  console.log(showDrawer)
   return (
-    <View style={{flex: 1, width: RFValue(300)}}>
+    <View style={{flex: showDrawer == true ? 1 : 0, width: RFValue(300)}}>
       <LinearGradient colors={['#6a1ed2', '#01deb6']} style={{flex: 2}}>
         <DrawerContentScrollView>
           <View style={styles.imageArea}>
@@ -53,14 +57,74 @@ const CustomDrawer = () => {
               <Text style={styles.listItemText}>Account Settings</Text>
             </View>
             <View style={styles.listItem}>
-              <MaterialCommunityIcons name="logout" size={RFValue(25)} color="white" />
+              <MaterialCommunityIcons
+                name="logout"
+                size={RFValue(25)}
+                color="white"
+              />
               <Text style={styles.listItemText}>Logout</Text>
             </View>
           </View>
-          <View style={styles.refferalCard}> 
-              <View style={styles.refferalCardMain}>
-
+          <View style={styles.refferalCard}>
+            <View style={styles.refferalCardMain}>
+              <View style={styles.refferalCardHeader}>
+                <Text style={{color: 'black', fontSize: RFValue(23)}}>Get</Text>
+                <Text
+                  style={{
+                    color: '#FFBF00',
+                    fontSize: RFValue(15),
+                    fontWeight: 'bold',
+                    lineHeight: 37,
+                  }}>
+                  {' '}
+                  $
+                </Text>
+                <Text
+                  style={{
+                    color: '#FFBF00',
+                    fontSize: RFValue(23),
+                    fontWeight: 'bold',
+                  }}>
+                  5{' '}
+                </Text>
+                <Text style={{color: 'black', fontSize: RFValue(23)}}>
+                  Free
+                </Text>
               </View>
+              <Text style={styles.refferalCardSubTitle}>
+                Invite your friends and get $5 worth of discounts
+              </Text>
+              <View style={styles.refferalCardFooter}>
+                <View style={styles.icon}>
+                  <FontAwesome
+                    name="envelope"
+                    size={RFValue(10)}
+                    color="white"
+                  />
+                </View>
+                <View style={styles.icon}>
+                  <FontAwesome
+                    name="facebook"
+                    size={RFValue(10)}
+                    color="white"
+                  />
+                </View>
+                <View style={styles.icon}>
+                  <FontAwesome
+                    name="whatsapp"
+                    size={RFValue(10)}
+                    color="white"
+                  />
+                </View>
+                <View style={styles.icon}>
+                  <FontAwesome
+                    name="twitter"
+                    size={RFValue(10)}
+                    color="white"
+                  />
+                </View>
+              </View>
+            </View>
           </View>
         </DrawerContentScrollView>
       </LinearGradient>
@@ -121,14 +185,42 @@ const styles = StyleSheet.create({
     fontSize: RFValue(15),
   },
   refferalCard: {
-    height: heightPercentageToDP('35%'),
-    width: widthPercentageToDP('100%'),
+    height: heightPercentageToDP('25%'),
+    width: widthPercentageToDP('85%'),
     alignItems: 'center',
+    justifyContent: 'center',
   },
   refferalCardMain: {
     borderRadius: RFValue(10),
     width: RFValue(250),
     height: RFValue(150),
     backgroundColor: 'white',
-  }
+  },
+  refferalCardHeader: {
+    paddingVertical: RFValue(10),
+    height: RFValue(50),
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  refferalCardSubTitle: {
+    fontSize: RFValue(13),
+    paddingHorizontal: RFValue(20),
+    textAlign: 'center',
+  },
+  refferalCardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    backgroundColor: '#00917C',
+    width: RFValue(20),
+    height: RFValue(20),
+    borderRadius: widthPercentageToDP('50%'),
+    marginVertical: RFValue(10),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: RFValue(2),
+  },
 });

@@ -6,7 +6,7 @@ import {
   Pressable,
   Image,
 } from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import React from 'react';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
@@ -15,18 +15,24 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
+import {show, hide} from '../store/features/DrawerSlice';
+
 const StickySearchBar = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const drawerState = useSelector(state => state.drawer.value);
+  const handleClick = () => {
+    drawerState ? dispatch(hide()) : dispatch(show());
+    navigation.openDrawer();
+  };
   return (
     <View style={styles.searchContainer}>
-      <Pressable
-        onPress={() => {
-          navigation.openDrawer();
-        }}
-        style={styles.menuIcon}>
+      <Pressable onPress={handleClick} style={styles.menuIcon}>
         <Icon name="menu" size={30} color="black" />
       </Pressable>
-      <TextInput placeholder="Good Everning Ali" style={styles.searchInput} />
+      <TextInput placeholder="Good Evening Ali" style={styles.searchInput} />
       <Image
         source={require('../../assests/images/profile.png')}
         style={styles.profileImage}
