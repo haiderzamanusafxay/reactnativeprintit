@@ -16,15 +16,13 @@ import {
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
-import {useSelector} from 'react-redux';
-import {show, hide} from '../store/features/DrawerSlice';
+import {show} from '../store/features/DrawerSlice';
 
 const StickySearchBar = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const drawerState = useSelector(state => state.drawer.value);
   const handleClick = () => {
-    drawerState ? dispatch(hide()) : dispatch(show());
+    dispatch(show());
     navigation.openDrawer();
   };
   return (

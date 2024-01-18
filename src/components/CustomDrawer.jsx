@@ -20,13 +20,10 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useSelector } from 'react-redux';
 const CustomDrawer = () => {
-  const showDrawer = useSelector(state => state.drawer.value);
-  console.log(showDrawer)
   return (
-    <View style={{flex: showDrawer == true ? 1 : 0, width: RFValue(300)}}>
-      <LinearGradient colors={['#6a1ed2', '#01deb6']} style={{flex: 2}}>
+    <View style={{flex: 1}}>
+      <LinearGradient colors={['#6a1ed2', '#01deb6']} style={{flex: 1}}>
         <DrawerContentScrollView>
           <View style={styles.imageArea}>
             <Image
