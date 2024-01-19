@@ -12,7 +12,6 @@ const SignUp = () => {
   return (
     <SafeAreaView style={SignUpCSS.SafeAreaView}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ImageBackground  source={require('../../assests/images/goalbg.png')}>
         <View style={SignInCSS.container}>
           <View style={SignInCSS.LogoArea}>
             <Image source={require('../../assests/images/logo.png')}></Image>
@@ -56,6 +55,7 @@ const SignUp = () => {
             <BlueBtn name="Sign Up" />
             <Text style={SignUpCSS.bottomText}>
               Already have an account?{' '}
+              
               <Pressable onPress={() => {navigation.navigate('findPrintersSelected')}} >
                 <Text  style={{color: '#00917C'}}>
                 Sign In
@@ -64,7 +64,6 @@ const SignUp = () => {
             </Text>
           </View>
         </View>
-        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );

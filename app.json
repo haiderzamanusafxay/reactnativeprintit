@@ -1,4 +1,13 @@
 {
   "name": "reactnew",
-  "displayName": "reactnew"
+  "displayName": "reactnew",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "0f1c5046-e863-4ee9-bf73-ba70173cd5b0"
+      }
+    },
+    "owner": "haiderzamanyzi",
+    "slug": "task-app"
+  }
 }
