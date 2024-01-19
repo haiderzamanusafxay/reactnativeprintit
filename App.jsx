@@ -12,6 +12,7 @@ import FindPrinters from './src/screens/FindPrinters';
 import {useDispatch} from 'react-redux';
 import {hide} from './src/store/features/DrawerSlice';
 import {RFValue} from 'react-native-responsive-fontsize';
+import FindPrintersSelected from './src/screens/FindPrintersSelected';
 enableScreens();
 const Drawer = createDrawerNavigator();
 
@@ -38,6 +39,13 @@ const App = () => {
             drawerStyle: {width: RFValue(300)},
           }}
           component={FindPrinters}
+        />
+        <Drawer.Screen
+          name="findPrintersSelected"
+          options={{
+            drawerStyle: {width: RFValue(300)},
+          }}
+          component={FindPrintersSelected}
         />
       </Drawer.Navigator>
     </NavigationContainer>

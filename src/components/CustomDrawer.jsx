@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     width: widthPercentageToDP('70%'),
     height: RFValue(2),
     backgroundColor: 'white',
+    opacity: 0.3,
   },
   list: {
     paddingLeft: RFValue(30),

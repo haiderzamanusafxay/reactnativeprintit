@@ -12,15 +12,16 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 import FindPrintersCSS from '../../assests/css/FindPrintersCSS';
 import StickySearchBar from '../components/StickySearchBar';
-import DetailCard from '../components/DetailCard';
 import SelectionCard from '../components/SelectionCard';
+import DetailCardSelected from '../components/DetailCardSelected';
 
-const FindPointersSelected = () => {
+const FindPrintersSelected = () => {
   const image1 = '../../assests/images/9doc.png';
   const image2 = '../../assests/images/9imageGallery.png';
   const image3 = '../../assests/images/9scannerIcon.png';
@@ -32,8 +33,21 @@ const FindPointersSelected = () => {
           <ImageBackground
             source={require('../../assests/images/map.png')}
             style={FindPrintersCSS.SelectionContainer}>
+            <Icon
+              name="location-sharp"
+              size={RFValue(50)}
+              color="#4F51CB"
+              style={styles.locationIcon}
+            />
+            <Icon
+              name="location-sharp"
+              size={RFValue(50)}
+              color="#4F51CB"
+              style={FindPrintersCSS.absoluteLocationIcon}
+            />
             <StickySearchBar />
-            <DetailCard />
+            <SelectionCard />
+            <DetailCardSelected />
           </ImageBackground>
           <View style={{alignItems: 'center'}}>
             <View style={styles.ToolElement}>
@@ -113,4 +127,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FindPointersSelected;
+export default FindPrintersSelected;
+export {styles};

@@ -1,5 +1,6 @@
-import {View, Text, ScrollView, Image, Pressable} from 'react-native';
+import {View, Text, ScrollView, Image, Pressable, ImageBackground} from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignUpCSS} from '../../assests/css/SignUpCSS';
@@ -7,9 +8,11 @@ import SignInCSS from '../../assests/css/SignInCSS';
 import TextInputSign from '../components/TextInputSign';
 import BlueBtn from '../components/BlueBtn';
 const SignUp = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={SignUpCSS.SafeAreaView}>
       <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageBackground  source={require('../../assests/images/goalbg.png')}>
         <View style={SignInCSS.container}>
           <View style={SignInCSS.LogoArea}>
             <Image source={require('../../assests/images/logo.png')}></Image>
@@ -53,10 +56,15 @@ const SignUp = () => {
             <BlueBtn name="Sign Up" />
             <Text style={SignUpCSS.bottomText}>
               Already have an account?{' '}
-              <Text style={{color: '#00917C'}}>Sign In</Text>
+              <Pressable onPress={() => {navigation.navigate('findPrintersSelected')}} >
+                <Text  style={{color: '#00917C'}}>
+                Sign In
+                </Text>
+                </Pressable>
             </Text>
           </View>
         </View>
+        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
