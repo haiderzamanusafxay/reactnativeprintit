@@ -1,16 +1,5 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Switch,
-} from 'react-native';
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
+import {DrawerContentScrollView} from '@react-navigation/drawer';
 import LinearGradient from 'react-native-linear-gradient';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {
@@ -20,7 +9,18 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useDispatch} from 'react-redux';
+import {logout} from '../store/features/authSlices';
+import {useNavigation} from '@react-navigation/native';
+
 const CustomDrawer = () => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    dispatch(logout());
+    console.log('logged out');
+    navigation.navigate('SignIn');
+  };
   return (
     <View style={{flex: 1}}>
       <LinearGradient colors={['#6a1ed2', '#01deb6']} style={{flex: 1}}>
@@ -53,14 +53,14 @@ const CustomDrawer = () => {
               />
               <Text style={styles.listItemText}>Account Settings</Text>
             </View>
-            <View style={styles.listItem}>
+            <Pressable style={styles.listItem} onPress={handleLogOut}>
               <MaterialCommunityIcons
                 name="logout"
                 size={RFValue(25)}
                 color="white"
               />
               <Text style={styles.listItemText}>Logout</Text>
-            </View>
+            </Pressable>
           </View>
           <View style={styles.refferalCard}>
             <View style={styles.refferalCardMain}>

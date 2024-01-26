@@ -6,7 +6,6 @@ import {
   Pressable,
   Image,
 } from 'react-native';
-import {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import React from 'react';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';

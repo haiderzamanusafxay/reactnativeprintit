@@ -1,12 +1,14 @@
 import {TextInput, StyleSheet} from 'react-native';
 import React from 'react';
 
-const TextInputSign = props => {
+const TextInputSign = ({placeholder, value, onChangeText}) => {
   return (
     <TextInput
-      placeholder={props.placeholder}
+      placeholder={placeholder}
       style={SignInCSS.TextInput}
       placeholderTextColor={'#C1C1C1'}
+      value={value}
+      onChangeText={onChangeText}
     />
   );
 };

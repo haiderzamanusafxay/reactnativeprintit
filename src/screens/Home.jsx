@@ -1,10 +1,63 @@
 import {View, Text, Pressable, Image} from 'react-native';
-import { useNavigation} from '@react-navigation/native';
-import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useDispatch} from 'react-redux';
+import {setAuthenticatedFalse} from '../store/features/authSlices';
 
 import HomeCSS from '../../assests/css/HomeCSS';
+import {BASEURL} from '../CONSTANTS';
 const Home = () => {
+  const dispatch = useDispatch();
+  const signInURL = BASEURL + 'api/auth/me';
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
+  const [accessToken, setAccessToken] = useState('');
+
+  console.log(signInURL);
+
+  useEffect(() => {
+    const checkAccessToken = async () => {
+      try {
+        const accessToken = await AsyncStorage.getItem('authToken');
+
+        if (accessToken == null) {
+          navigation.navigate('SignIn');
+        } else {
+          dispatch(setAuthenticatedFalse);
+          navigation.navigate('findPrinters');
+        }
+      } catch (error) {
+        console.error('Error getting access token:', error);
+        Alert.alert('Error', 'Failed to get access token');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAccessToken();
+  }, [navigation]);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch(signInURL, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const userData = await response.json();
+      console.log('User data:', userData);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      Alert.alert('Error', 'Failed to fetch user data');
+    }
+  };
+
+  if (loading) {
+    return null;
+  }
   return (
     <View style={HomeCSS.container}>
       <View style={HomeCSS.logopart}>

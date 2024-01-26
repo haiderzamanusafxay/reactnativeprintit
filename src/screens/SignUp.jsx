@@ -1,14 +1,34 @@
-import {View, Text, ScrollView, Image, Pressable, ImageBackground} from 'react-native';
-import React from 'react';
+import {View, Text, ScrollView, Image, Pressable, ImageBackground, Alert} from 'react-native';
+import React, {  useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import { useDispatch } from 'react-redux';
+
 import {SignUpCSS} from '../../assests/css/SignUpCSS';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import SignInCSS from '../../assests/css/SignInCSS';
 import TextInputSign from '../components/TextInputSign';
 import BlueBtn from '../components/BlueBtn';
+import { BASEURL } from '../CONSTANTS';
 const SignUp = () => {
+  const dispatch = useDispatch();
+
+  const [username, setUsername] = useState('');
+  const [password1, setPassword1] = useState('');
+  const [password2, setPassword2] = useState('');
+  const [email, setEmail] = useState('');
   const navigation = useNavigation();
+
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post(BASEURL+'/api/auth/sign-up', { username, password1, password2, email });
+      dispatch(setSignupData(response.data));
+      navigation.navigate('SignIn');
+    } catch (error) {
+      Alert.alert('Error', 'The following error occured \n' + error);
+    }
+
+  };
   return (
     <SafeAreaView style={SignUpCSS.SafeAreaView}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -44,10 +64,10 @@ const SignUp = () => {
                 <View style={{background: '#black', padding: '0 10px'}}></View>
               </Text>
             </View>
-            <TextInputSign placeholder="Name" />
-            <TextInputSign placeholder="Email" />
-            <TextInputSign placeholder="Password" />
-            <TextInputSign placeholder="Confirm Password" />
+            <TextInputSign placeholder="Name" onTextChange={setUsername} />
+            <TextInputSign placeholder="Email" onTextChange={setEmail}/>
+            <TextInputSign placeholder="Password" onTextChange={setPassword1}/>
+            <TextInputSign placeholder="Confirm Password" onTextChange={setPassword2} />
             <View style={SignUpCSS.termsAndCondition}>
               <Icon name="check-square" size={15} color="blue" />
               <Text style={{marginLeft: 5}}>I agree to the terms and conditions</Text>
@@ -56,7 +76,7 @@ const SignUp = () => {
             <Text style={SignUpCSS.bottomText}>
               Already have an account?{' '}
               
-              <Pressable onPress={() => {navigation.navigate('findPrintersSelected')}} >
+              <Pressable onPress={handleSignup} >
                 <Text  style={{color: '#00917C'}}>
                 Sign In
                 </Text>
